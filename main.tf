@@ -20,7 +20,7 @@ resource "azurerm_virtual_machine" "server" {
   location              = "${var.az_location}"
   resource_group_name   = "${data.azurerm_resource_group.rg_mygroup.name}"
   network_interface_ids = ["${element(azurerm_network_interface.myterraformnic.*.id, count.index)}"]
-  vm_size               = "Standard_A4_v2"
+  vm_size               = "${var.vm_size}"
 
   storage_os_disk {
     name              = "server-${count.index}-os"
