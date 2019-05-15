@@ -7,12 +7,12 @@ resource "azurerm_subnet" "net1" {
   name                 = "net1"
   resource_group_name  = "${data.azurerm_resource_group.rg_mygroup.name}"
   virtual_network_name = "${data.azurerm_virtual_network.myvnet.name}"
-  address_prefix       = "172.31.0.192/26"
+  address_prefix       = "${var.subnets["net1"]}"
 }
 
 resource "azurerm_subnet" "net2" {
-  name                 = "net1"
+  name                 = "net2"
   resource_group_name  = "${data.azurerm_resource_group.rg_mygroup.name}"
   virtual_network_name = "${data.azurerm_virtual_network.myvnet.name}"
-  address_prefix       = "172.31.0.64/26"
+  address_prefix       = "${var.subnets["net2"]}"
 }

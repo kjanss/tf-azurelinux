@@ -15,7 +15,7 @@ resource "azurerm_network_security_group" "sg-linuxin" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "*"
-    source_address_prefix      = "172.16.0.0/12"
+    source_address_prefix      = "${var.allow_from}"
     destination_address_prefix = "*"
   }
 
